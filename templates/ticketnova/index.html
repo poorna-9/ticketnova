@@ -1,0 +1,139 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TicketNova | Smart Ticket Booking</title>
+
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+    <link rel="stylesheet" href="{% static 'ticketnova/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'ticketnova/css/chat.css' %}">
+    <link rel="stylesheet" href="{% static 'ticketnova/css/listings.css' %}">
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+
+<body>
+
+<div class="app-container">
+
+    <!-- LEFT: CHAT PANEL -->
+    <aside class="chat-panel">
+
+        <header class="chat-header">
+            <div class="brand">
+                <div class="brand-icon">T</div>
+                <div>
+                    <h2>TicketNova</h2>
+                    <p>Your AI booking assistant</p>
+                </div>
+            </div>
+
+            <button id="new-chat-btn" class="icon-button" title="New chat">
+                +
+            </button>
+        </header>
+
+        <div class="chat-welcome">
+            <h2>Where would you like to go?</h2>
+            <p>Book movie, bus and flight tickets using natural language.</p>
+        </div>
+
+        <div class="quick-actions">
+            <button class="quick-action" data-query="I want to book movie tickets">
+                🎬 Movies
+            </button>
+
+            <button class="quick-action" data-query="I want to book a bus ticket">
+                🚌 Buses
+            </button>
+
+            <button class="quick-action" data-query="I want to book a flight">
+                ✈️ Flights
+            </button>
+
+            <button class="quick-action" data-query="Show my bookings">
+                🎟 My bookings
+            </button>
+        </div>
+
+        <main id="chat-messages" class="chat-messages">
+            <div class="message assistant-message">
+                <div class="message-avatar">T</div>
+                <div class="message-content">
+                    Hello! Welcome to TicketNova. What would you like to book today?
+                </div>
+            </div>
+        </main>
+
+        <form id="chat-form" class="chat-input-container">
+
+            <input
+                type="text"
+                id="chat-input"
+                placeholder="Ask me anything..."
+                autocomplete="off"
+                required
+            >
+
+            <button type="submit" id="send-btn">
+                ➤
+            </button>
+
+        </form>
+
+        <div class="chat-footer">
+            Powered by TicketNova AI
+        </div>
+
+    </aside>
+
+
+    <!-- RIGHT: DYNAMIC CONTENT PANEL -->
+    <main class="content-panel">
+
+        <header class="content-header">
+            <div>
+                <h2 id="content-title">Explore TicketNova</h2>
+                <p id="content-subtitle">
+                    Your bookings and available options will appear here.
+                </p>
+            </div>
+
+            <div class="connection-status">
+                <span class="status-dot"></span>
+                AI Assistant Online
+            </div>
+        </header>
+
+        <section id="content-body" class="content-body">
+
+            <div class="empty-state">
+                <div class="empty-icon">🎟️</div>
+                <h2>Your next journey starts here</h2>
+                <p>
+                    Start a conversation with TicketNova.
+                    Your movie, bus and flight options will appear here.
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="{% static 'ticketnova/js/payment.js' %}"></script>
+<script src="{% static 'ticketnova/js/movie.js' %}"></script>
+<script src="{% static 'ticketnova/js/bus.js' %}"></script>
+<script src="{% static 'ticketnova/js/flight.js' %}"></script>
+<script src="{% static 'ticketnova/js/renderer.js' %}"></script>
+<script src="{% static 'ticketnova/js/chatbot.js' %}"></script>
+
+</body>
+</html>
