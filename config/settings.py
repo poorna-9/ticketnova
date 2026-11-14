@@ -15,7 +15,8 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
+LOG_DIR = BASE_DIR / "logs"
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
@@ -152,7 +153,7 @@ LOGGING = {
     "handlers": {
         "ai_file": {
             "class": "logging.handlers.RotatingFileHandler",
-            "filename": BASE_DIR / "logs" / "ai_events.log",
+            "filename": LOG_DIR / "ai_events.log",
             "maxBytes": 10 * 1024 * 1024,
             "backupCount": 5,
             "formatter": "ai_json",
