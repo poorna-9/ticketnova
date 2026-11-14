@@ -1,6 +1,5 @@
-﻿Django>=5.1,<6.0
-gunicorn
-psycopg2-binary
+Django
+djangorestframework
 whitenoise
 pillow
 razorpay
@@ -15,5 +14,4 @@ django-redis
 python-dotenv
 django-celery-beat
 celery
-djangorestframework
 mysqlclient
